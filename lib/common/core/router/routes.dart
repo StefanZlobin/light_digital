@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:light_digital/common/core/enum/app_routes_enum.dart';
-import 'package:light_digital/common/presentation/pages/splash_page.dart';
 import 'package:light_digital/common/presentation/pages/about_service_page.dart';
+import 'package:light_digital/common/presentation/pages/home_page.dart';
+import 'package:light_digital/common/presentation/pages/splash_page.dart';
 import 'package:light_digital/features/auth/presentation/pages/auth_page.dart';
 
 class Routes {
@@ -25,7 +26,7 @@ class Routes {
     GoRoute(
       path: AppRoutesEnum.home.routeToPath,
       name: AppRoutesEnum.home.routeToName,
-      builder: (context, state) => mockPage(state),
+      builder: (context, state) => const HomePage(),
     ),
     GoRoute(
       path: AppRoutesEnum.eventsList.routeToPath,
@@ -48,6 +49,19 @@ class Routes {
       builder: (context, state) => mockPage(state),
     ),
   ];
+}
+
+CustomTransitionPage buildPageWithtTransition<T>({
+  required BuildContext context,
+  required GoRouterState state,
+  required Widget child,
+}) {
+  return CustomTransitionPage<T>(
+    key: state.pageKey,
+    child: child,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+        FadeTransition(opacity: animation, child: child),
+  );
 }
 
 Widget mockPage(GoRouterState state) => SafeArea(
