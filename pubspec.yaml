@@ -1,0 +1,52 @@
+name: light_digital
+description: A new Flutter project.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.6 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Routing
+  go_router: ^10.1.0
+  # State managment
+  bloc: ^8.1.2
+  flutter_bloc: ^8.1.3
+  # Google fonts
+  google_fonts: ^5.1.0
+  # Page transition
+  page_transition: ^2.0.9
+  # Flutter gen
+  flutter_gen: ^5.3.1
+
+  #Animated native splash screen
+  #aka Stefan
+  animated_splash_screen:
+    git:
+      url: https://github.com/StefanZlobin/animated_splash_screen.git
+      ref: master
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Code generation
+  build_runner: ^2.4.6
+  go_router_builder: ^2.3.0
+  flutter_gen_runner: ^5.3.1
+
+  flutter_lints: ^2.0.0
+
+flutter_gen:
+  output: lib/gen/ # Optional (default: lib/gen/)
+  line_length: 120 # Optional (default: 80)
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/images/
