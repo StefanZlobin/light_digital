@@ -10,6 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # DI
+  get_it: ^7.6.0
   # Routing
   go_router: ^10.1.0
   # State managment
@@ -21,6 +23,11 @@ dependencies:
   page_transition: ^2.0.9
   # Flutter gen
   flutter_gen: ^5.3.1
+  # Page indicator
+  smooth_page_indicator: ^1.1.0
+  # Freezed
+  freezed: ^2.4.1
+  freezed_annotation: ^2.4.1
 
   #Animated native splash screen
   #aka Stefan

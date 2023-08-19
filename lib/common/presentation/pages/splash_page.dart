@@ -14,7 +14,7 @@ class SplashPage extends StatelessWidget {
       splash: Assets.images.logo.image(),
       backgroundColor: AppColors.kBaseWhite,
       centered: true,
-      duration: 3000,
+      duration: 1000,
       splashIconSize: 36,
       curve: Curves.easeInOut,
       pageTransitionType: PageTransitionType.fade,
