@@ -28,6 +28,16 @@ dependencies:
   # Freezed
   freezed: ^2.4.1
   freezed_annotation: ^2.4.1
+  # Fake data
+  faker: ^2.1.0
+  # Uuid
+  uuid: ^3.0.7
+  # Localization
+  intl: ^0.18.0
+  # Clock
+  clock: ^1.1.1
+  # Streams
+  rxdart: ^0.27.7
 
   #Animated native splash screen
   #aka Stefan

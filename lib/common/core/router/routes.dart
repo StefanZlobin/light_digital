@@ -3,8 +3,13 @@ import 'package:go_router/go_router.dart';
 import 'package:light_digital/common/core/enum/app_routes_enum.dart';
 import 'package:light_digital/common/presentation/pages/about_service_page.dart';
 import 'package:light_digital/common/presentation/pages/home_page.dart';
+import 'package:light_digital/common/presentation/pages/profile_page.dart';
 import 'package:light_digital/common/presentation/pages/splash_page.dart';
 import 'package:light_digital/features/auth/presentation/pages/auth_page.dart';
+import 'package:light_digital/features/events/domain/entities/event.dart';
+import 'package:light_digital/features/events/presentation/pages/event_page.dart';
+import 'package:light_digital/features/events/presentation/pages/events_page.dart';
+import 'package:light_digital/features/events/presentation/pages/history_events_page.dart';
 
 class Routes {
   final publicRoutes = <GoRoute>[
@@ -31,12 +36,19 @@ class Routes {
     GoRoute(
       path: AppRoutesEnum.eventsList.routeToPath,
       name: AppRoutesEnum.eventsList.routeToName,
-      builder: (context, state) => mockPage(state),
+      builder: (context, state) => const EventsPage(),
+    ),
+    GoRoute(
+      path: AppRoutesEnum.historyEventsList.routeToPath,
+      name: AppRoutesEnum.historyEventsList.routeToName,
+      builder: (context, state) => const HistoryEventsPage(),
     ),
     GoRoute(
       path: AppRoutesEnum.event.routeToPath,
       name: AppRoutesEnum.event.routeToName,
-      builder: (context, state) => mockPage(state),
+      builder: (context, state) => EventPage(
+        event: state.extra as Event,
+      ),
     ),
     GoRoute(
       path: AppRoutesEnum.newsList.routeToPath,
@@ -46,6 +58,16 @@ class Routes {
     GoRoute(
       path: AppRoutesEnum.news.routeToPath,
       name: AppRoutesEnum.news.routeToName,
+      builder: (context, state) => mockPage(state),
+    ),
+    GoRoute(
+      path: AppRoutesEnum.profile.routeToPath,
+      name: AppRoutesEnum.profile.routeToName,
+      builder: (context, state) => const ProfilePage(),
+    ),
+    GoRoute(
+      path: AppRoutesEnum.chat.routeToPath,
+      name: AppRoutesEnum.chat.routeToName,
       builder: (context, state) => mockPage(state),
     ),
   ];

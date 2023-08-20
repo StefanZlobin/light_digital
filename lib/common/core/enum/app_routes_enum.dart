@@ -13,12 +13,18 @@ enum AppRoutesEnum {
   home,
   // events list page
   eventsList,
+  // history events list page
+  historyEventsList,
   // event page
   event,
   // news list page
   newsList,
   // news page
-  news;
+  news,
+  // profile page
+  profile,
+  // chat page
+  chat;
 
   String get routeToPath {
     switch (this) {
@@ -32,12 +38,18 @@ enum AppRoutesEnum {
         return '/${AppRoutesEnum.home.name}';
       case AppRoutesEnum.eventsList:
         return '/${AppRoutesEnum.eventsList.name}';
+      case AppRoutesEnum.historyEventsList:
+        return '/${AppRoutesEnum.historyEventsList.name}';
       case AppRoutesEnum.event:
         return '/${AppRoutesEnum.event.name}';
       case AppRoutesEnum.newsList:
         return '/${AppRoutesEnum.newsList.name}';
       case AppRoutesEnum.news:
         return '/${AppRoutesEnum.news.name}';
+      case AppRoutesEnum.profile:
+        return '/${AppRoutesEnum.profile.name}';
+      case AppRoutesEnum.chat:
+        return '/${AppRoutesEnum.chat.name}';
     }
   }
 
@@ -53,12 +65,18 @@ enum AppRoutesEnum {
         return '/${AppRoutesEnum.home.name.toUpperCase()}';
       case AppRoutesEnum.eventsList:
         return '/${AppRoutesEnum.eventsList.name.toUpperCase()}';
+      case AppRoutesEnum.historyEventsList:
+        return '/${AppRoutesEnum.historyEventsList.name.toUpperCase()}';
       case AppRoutesEnum.event:
         return '/${AppRoutesEnum.event.name.toUpperCase()}';
       case AppRoutesEnum.newsList:
         return '/${AppRoutesEnum.newsList.name.toUpperCase()}';
       case AppRoutesEnum.news:
         return '/${AppRoutesEnum.news.name.toUpperCase()}';
+      case AppRoutesEnum.profile:
+        return '/${AppRoutesEnum.profile.name.toUpperCase()}';
+      case AppRoutesEnum.chat:
+        return '/${AppRoutesEnum.chat.name.toUpperCase()}';
     }
   }
 
@@ -80,6 +98,12 @@ enum AppRoutesEnum {
         return 'Новости';
       case AppRoutesEnum.news:
         return 'Новость';
+      case AppRoutesEnum.profile:
+        return 'Мой профиль';
+      case AppRoutesEnum.historyEventsList:
+        return 'История мероприятий';
+      case AppRoutesEnum.chat:
+        return 'Чат';
     }
   }
 }

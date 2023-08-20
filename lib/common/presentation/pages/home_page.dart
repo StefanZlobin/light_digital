@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:light_digital/common/core/styles/colors/app_colors.dart';
+import 'package:light_digital/common/core/styles/fonts/app_fonts.dart';
+import 'package:light_digital/common/presentation/components/bottom_nav_bar.dart';
+import 'package:light_digital/features/events/presentation/components/events_list.dart';
+import 'package:light_digital/features/news/presentation/components/news_list.dart';
 import 'package:light_digital/gen/assets.gen.dart';
 
 class HomePage extends StatefulWidget {
@@ -30,21 +34,73 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         appBar: AppBar(
           clipBehavior: Clip.none,
           leading: Assets.images.logo.image(),
+          actions: [
+            _buildAboutFond(),
+            const SizedBox(width: 8),
+            _buildNotification(),
+            const SizedBox(width: 24),
+          ],
           bottom: _buildTabBar(),
         ),
         body: TabBarView(
           controller: controller,
           physics: const NeverScrollableScrollPhysics(),
-          children: [
-            Container(
-              color: AppColors.kBaseBlack,
-            ),
-            Container(
-              color: AppColors.kPrimaryBlueDark,
-            )
-          ],
+          children: const [EventsList(), NewsList()],
         ),
-        bottomNavigationBar: _buildBottomNav(),
+        bottomNavigationBar: const BottomNavBar(),
+      ),
+    );
+  }
+
+  Widget _buildNotification() {
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Container(
+          width: 40,
+          height: 40,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: AppColors.kBaseLMedium,
+          ),
+          child: const Center(
+            child: Icon(
+              Icons.notifications,
+              color: AppColors.kBaseBlack,
+              size: 24,
+            ),
+          ),
+        ),
+        Positioned(
+          right: -4,
+          bottom: 15,
+          child: Container(
+            width: 18,
+            height: 18,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(360),
+              color: AppColors.kSupportErrorDark,
+            ),
+            child: const Center(child: Text('1')),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Container _buildAboutFond() {
+    return Container(
+      width: 109,
+      height: 40,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: AppColors.kBaseLMedium,
+      ),
+      child: Center(
+        child: Text(
+          'О фонде',
+          style: AppTypography.kBodyS.apply(color: AppColors.kBaseBlack),
+        ),
       ),
     );
   }
@@ -77,29 +133,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildBottomNav() {
-    return BottomNavigationBar(
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Главная',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.event_available),
-          label: 'Мероприятия',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.chat_rounded),
-          label: 'Чат',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.account_box_rounded),
-          label: 'Мой профиль',
-        ),
-      ],
     );
   }
 }
